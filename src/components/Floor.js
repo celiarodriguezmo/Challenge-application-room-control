@@ -11,7 +11,7 @@ function Floor(props) {
     return (
       <Room
         key={index}
-        room={props.room}
+        room={room}
         handleCapacity={props.handleCapacity}
         handleOccupation={props.handleOccupation}
       />

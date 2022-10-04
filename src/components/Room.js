@@ -1,10 +1,12 @@
 function Room(props) {
   const handleChangeInputs = (ev) => {
     props.handleCapacity({
+      inputID: ev.currentTarget.getAttribute("data-room-id"),
       inputValue: ev.currentTarget.value,
       inputName: ev.currentTarget.name,
     });
     props.handleOccupation({
+      inputID: ev.currentTarget.getAttribute("data-room-id"),
       inputValue: ev.currentTarget.value,
       inputName: ev.currentTarget.name,
     });
@@ -17,17 +19,19 @@ function Room(props) {
         Capacidad máxima
       </label>
       <input
+        data-room-id={props.room.idRoom}
         className='item-room__input'
         type='text'
         name='capacity'
         placeholder='30'
-        value={props.room.capacity}
+        value={String(props.room.capacity)}
         onChange={handleChangeInputs}
       />
       <label className='item-room__label' htmlFor='occupation'>
         Ocupación
       </label>
       <input
+        data-room-id={props.room.idRoom}
         className='item-room__input'
         type='text'
         name='occupation'

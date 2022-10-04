@@ -6,17 +6,19 @@ import { useState } from "react";
 function App() {
   const [rooms, setRooms] = useState([]);
 
-  const [room, setRoom] = useState({
-    idRoom: 0,
-    capacity: "30",
-    occupation: "100%",
-  });
-
   const handleAddRoom = (data) => {
     let idButton = data.idButton;
+    let roomsLength = rooms.length;
 
     if (idButton === "addRoom") {
-      setRooms([...rooms, room]);
+      setRooms([
+        ...rooms,
+        {
+          idRoom: roomsLength,
+          capacity: "30",
+          occupation: "100%",
+        },
+      ]);
     } else {
     }
   };
@@ -24,17 +26,29 @@ function App() {
   const handleCapacity = (data) => {
     const inputName = data.inputName;
     const inputValue = data.inputValue;
-    if (inputName === "capacity") {
-      setRoom({ capacity: inputValue });
+    const inputID = data.inputID;
+
+    if (inputName !== "capacity") {
+      return;
     }
+
+    rooms[inputID]["capacity"] = inputValue;
+
+    setRooms([...rooms]);
   };
 
   const handleOccupation = (data) => {
     const inputName = data.inputName;
     const inputValue = data.inputValue;
-    if (inputName === "occupation") {
-      setRoom({ occupation: inputValue });
+    const inputID = data.inputID;
+
+    if (inputName !== "occupation") {
+      return;
     }
+
+    rooms[inputID]["occupation"] = inputValue;
+
+    setRooms([...rooms]);
   };
 
   return (
@@ -43,7 +57,6 @@ function App() {
       <Floor
         handleAddRoom={handleAddRoom}
         rooms={rooms}
-        room={room}
         handleCapacity={handleCapacity}
         handleOccupation={handleOccupation}
       />
