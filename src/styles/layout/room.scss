@@ -1,0 +1,43 @@
+.item-room {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 0.9rem;
+  background-color: $light_blue;
+  border-radius: 26px;
+  margin: 5px;
+  padding: 12px;
+
+  &__title {
+    font-size: 0.8rem;
+    color: $dark_blue;
+    margin-bottom: 15px;
+  }
+  &__label {
+    font-weight: 700;
+    font-size: 0.7rem;
+    color: $dark_blue;
+    margin: 4px 0;
+  }
+  &__input {
+    width: 177px;
+    height: 30px;
+    font-size: 0.7rem;
+    border-radius: 0.75rem;
+    border-style: none;
+    border: 1px solid;
+    border-color: $dark_blue;
+    padding: 0 10px;
+    margin-bottom: 10px;
+  }
+  &__modify {
+    width: 84px;
+    height: 30px;
+    align-self: flex-end;
+    font-size: 0.6rem;
+    color: $white;
+    border-radius: 0.75rem;
+    background-color: $dark_blue;
+  }
+}

@@ -5,7 +5,7 @@ function Header() {
     <header className='header'>
       <h1 className='header__title'>Salas</h1>
       <SelectFloor />
-      <span className='header__separator'>.</span>
+      <span className='header__separator'></span>
     </header>
   );
 }

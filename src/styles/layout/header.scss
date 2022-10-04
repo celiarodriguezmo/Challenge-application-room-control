@@ -1,6 +1,4 @@
 .header {
-  width: 100vw;
-  height: 12vh;
   display: flex;
   flex-direction: column;
 
@@ -10,18 +8,12 @@
     font-family: $helvetica;
     color: $dark_blue;
   }
-  &__select {
-    width: 125px;
-    height: 27px;
-    font-size: 0.625rem;
-    color: $dark_blue;
-    border-radius: 0.75rem;
-    margin: 15px 0;
-    padding: 0px 15px;
-  }
   &__separator {
+    position: relative;
     width: 100vw;
-    height: 1px;
-    color: $light-blue;
+    height: 2px;
+    color: $light_blue;
+    border-bottom: 1.5px solid;
+    margin: 20px 0;
   }
 }

@@ -20,10 +20,12 @@ function Floor(props) {
 
   return (
     <main className='main-floor'>
-      <h2 className='main-floor__title'>Planta</h2>
-      <button className='main-floor__button' onClick={AddRoom} id='addRoom'>
-        Añadir
-      </button>
+      <div className='main-floor__div'>
+        <h2 className='main-floor__title'>Planta 1</h2>
+        <button className='main-floor__button' onClick={AddRoom} id='addRoom'>
+          Añadir sala
+        </button>
+      </div>
       <ul className='main-floor__list'>{elements}</ul>
     </main>
   );
