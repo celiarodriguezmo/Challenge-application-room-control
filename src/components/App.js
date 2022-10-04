@@ -1,9 +1,12 @@
 import "../styles/App.scss";
+import Header from "./Header.js";
+import Floor from "./Floor.js";
 
 function App() {
   return (
     <div className='App'>
-      <h1>Salas</h1>
+      <Header />
+      <Floor />
     </div>
   );
 }
