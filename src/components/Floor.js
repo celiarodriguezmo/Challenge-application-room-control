@@ -1,21 +1,30 @@
 import Room from "./Room.js";
 
-function Floor() {
-  function handleAddRoom(ev) {
-    return console.log("Añade una sala!");
+function Floor(props) {
+  function AddRoom(ev) {
+    props.handleAddRoom({
+      idButton: ev.currentTarget.id,
+    });
   }
+
+  const elements = props.rooms.map((room, index) => {
+    return (
+      <Room
+        key={index}
+        room={props.room}
+        handleCapacity={props.handleCapacity}
+        handleOccupation={props.handleOccupation}
+      />
+    );
+  });
 
   return (
     <>
       <h2>Planta</h2>
-      <button onClick={handleAddRoom} id='1'>
+      <button onClick={AddRoom} id='addRoom'>
         Añadir
       </button>
-      <ul>
-        <li>
-          <Room />
-        </li>
-      </ul>
+      <ul>{elements}</ul>
     </>
   );
 }
