@@ -1,0 +1,13 @@
+:root {
+  font-family: $helvetica;
+  font-size: 16px;
+}
+
+.App {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 15px;
+}

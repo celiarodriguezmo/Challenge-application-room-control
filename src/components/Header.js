@@ -3,8 +3,9 @@ import SelectFloor from "./SelectFloor.js";
 function Header() {
   return (
     <header className='header'>
-      <h1>Salas</h1>
+      <h1 className='header__title'>Salas</h1>
       <SelectFloor />
+      <span className='header__separator'>.</span>
     </header>
   );
 }

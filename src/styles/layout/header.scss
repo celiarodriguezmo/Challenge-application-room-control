@@ -1,0 +1,27 @@
+.header {
+  width: 100vw;
+  height: 12vh;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-family: $helvetica;
+    color: $dark_blue;
+  }
+  &__select {
+    width: 125px;
+    height: 27px;
+    font-size: 0.625rem;
+    color: $dark_blue;
+    border-radius: 0.75rem;
+    margin: 15px 0;
+    padding: 0px 15px;
+  }
+  &__separator {
+    width: 100vw;
+    height: 1px;
+    color: $light-blue;
+  }
+}
