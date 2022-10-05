@@ -1,16 +1,31 @@
 .main-floor {
   min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border-radius: 26px;
   border: 2px solid;
   border-color: $dark_blue;
   padding: 12px 15px 20px 12px;
 
   &__div {
+    width: 80%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 6.5px;
+
+    @include tablet {
+      width: 100%;
+      max-width: 880px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    @include desktop {
+      max-width: 1317px;
+    }
   }
   &__title {
     font-size: 1rem;
@@ -30,5 +45,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @include tablet {
+      justify-content: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  @include tablet {
+    max-width: 920px;
+  }
+  @include desktop {
+    max-width: 1363px;
   }
 }
