@@ -1,4 +1,10 @@
 function Room(props) {
+  const modifyRoom = (ev) => {
+    props.handleModifyRoom({
+      idModify: ev.currentTarget.getAttribute("data-room-id"),
+    });
+  };
+
   const handleChangeInputs = (ev) => {
     props.handleCapacity({
       inputID: ev.currentTarget.getAttribute("data-room-id"),
@@ -20,11 +26,13 @@ function Room(props) {
       </label>
       <input
         data-room-id={props.room.idRoom}
-        className='item-room__input'
+        className={`item-room__input ${props.inputValidate}`}
         type='text'
         name='capacity'
-        placeholder='30'
-        value={String(props.room.capacity)}
+        placeholder='max 100 pers'
+        minLength='1'
+        maxLength='3'
+        value={props.room.capacity}
         onChange={handleChangeInputs}
       />
       <label className='item-room__label' htmlFor='occupation'>
@@ -32,14 +40,22 @@ function Room(props) {
       </label>
       <input
         data-room-id={props.room.idRoom}
-        className='item-room__input'
+        className={`item-room__input ${props.inputValidate}`}
         type='text'
         name='occupation'
-        placeholder='%'
+        minLength='1'
+        maxLength='3'
+        placeholder='hasta 100%'
         value={props.room.occupation}
         onChange={handleChangeInputs}
       />
-      <button className='item-room__modify'>Modificar</button>
+      <button
+        className='item-room__modify'
+        data-room-id={props.room.idRoom}
+        onClick={modifyRoom}
+      >
+        Modificar
+      </button>
     </li>
   );
 }

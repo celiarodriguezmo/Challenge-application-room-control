@@ -12,8 +12,10 @@ function Floor(props) {
       <Room
         key={index}
         room={room}
+        inputValidate={props.inputValidate}
         handleCapacity={props.handleCapacity}
         handleOccupation={props.handleOccupation}
+        handleModifyRoom={props.handleModifyRoom}
       />
     );
   });
