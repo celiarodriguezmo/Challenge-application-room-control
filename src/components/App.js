@@ -4,25 +4,36 @@ import Floor from "./Floor.js";
 import { useState } from "react";
 
 function App() {
-  const [rooms, setRooms] = useState([]);
+  const [paintFloor, setPaintFloor] = useState([]);
+  const [rooms1, setRooms1] = useState([]);
   const [rooms2, setRooms2] = useState([]);
-
   const [selectedFloor, setSelectedFloor] = useState("Planta 1");
 
   const handleAddRoom = (data) => {
     let idButton = data.idButton;
-    let roomsLength = rooms.length;
+    let rooms1Length = rooms1.length;
+    let rooms2Length = rooms2.length;
 
-    if (idButton === "addRoom") {
-      setRooms([
-        ...rooms,
+    if (selectedFloor === "Planta 1") {
+      setRooms1([
+        ...rooms1,
         {
-          idRoom: roomsLength,
+          idRoom: rooms1Length,
           capacity: "30",
           occupation: "100%",
         },
       ]);
-    } else {
+      setPaintFloor([...rooms1, rooms1]);
+    } else if (selectedFloor === "Planta 2") {
+      setRooms2([
+        ...rooms2,
+        {
+          idRoom: rooms2Length,
+          capacity: "30",
+          occupation: "100%",
+        },
+      ]);
+      setPaintFloor([...rooms2, rooms2]);
     }
   };
 
@@ -35,9 +46,11 @@ function App() {
       return;
     }
 
-    rooms[inputID]["capacity"] = inputValue;
+    rooms1[inputID]["capacity"] = inputValue;
+    rooms2[inputID]["capacity"] = inputValue;
 
-    setRooms([...rooms]);
+    setRooms1([...rooms1]);
+    setRooms2([...rooms2]);
   };
 
   const handleOccupation = (data) => {
@@ -49,19 +62,22 @@ function App() {
       return;
     }
 
-    rooms[inputID]["occupation"] = inputValue;
+    rooms1[inputID]["occupation"] = inputValue;
+    rooms2[inputID]["occupation"] = inputValue;
 
-    setRooms([...rooms]);
+    setRooms1([...rooms1]);
+    setRooms2([...rooms2]);
   };
 
   const handleSelectFloor = (data) => {
     let idFloor = data.idFloor;
-    console.log(idFloor);
 
     if (idFloor === "Planta 1") {
       setSelectedFloor("Planta 1");
+      setPaintFloor([...rooms1]);
     } else {
       setSelectedFloor("Planta 2");
+      setPaintFloor([...rooms2]);
     }
   };
 
@@ -71,8 +87,7 @@ function App() {
       <Floor
         selectedFloor={selectedFloor}
         handleAddRoom={handleAddRoom}
-        rooms={rooms}
-        rooms2={rooms2}
+        paintFloor={paintFloor}
         handleCapacity={handleCapacity}
         handleOccupation={handleOccupation}
       />

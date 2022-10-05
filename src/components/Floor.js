@@ -7,7 +7,7 @@ function Floor(props) {
     });
   }
 
-  const elements = props.rooms.map((room, index) => {
+  const elements = props.paintFloor.map((room, index) => {
     return (
       <Room
         key={index}
