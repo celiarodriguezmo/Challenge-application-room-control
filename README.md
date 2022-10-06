@@ -27,7 +27,8 @@ Readme con las siguientes secciones:
 - Simular la conexión con backend con una API mockeada (puedes crearla con https://apimocha.com/ u otra plataforma que conozcas)
 - Eliminar salas de una planta
 - Filtrar las salas por capacidad y ocupación
-  Responsive
+- Responsive
+
 
 ## RECURSOS
 

@@ -16,6 +16,7 @@ function Floor(props) {
         handleCapacity={props.handleCapacity}
         handleOccupation={props.handleOccupation}
         handleModifyRoom={props.handleModifyRoom}
+        handleDeleteIcon={props.handleDeleteIcon}
       />
     );
   });

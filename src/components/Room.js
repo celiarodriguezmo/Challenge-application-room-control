@@ -5,6 +5,12 @@ function Room(props) {
     });
   };
 
+  const handleDelete = (ev) => {
+    props.handleDeleteIcon({
+      idRoom: ev.currentTarget.getAttribute("data-room-id"),
+    });
+  };
+
   const handleChangeInputs = (ev) => {
     props.handleCapacity({
       inputID: ev.currentTarget.getAttribute("data-room-id"),
@@ -20,18 +26,25 @@ function Room(props) {
 
   return (
     <li key={props.room.idRoom} className='item-room'>
-      <h3 className='item-room__title'>Sala Planta </h3>
+      <div className='item-room__div'>
+        <h3 className='item-room__title'>Sala Planta </h3>
+        <i
+          onClick={handleDelete}
+          className='fa-solid fa-trash-can item-room__delete'
+          data-room-id={props.room.idRoom}
+        ></i>
+      </div>
+
       <label className='item-room__label' htmlFor='Capacity'>
         Capacidad máxima
       </label>
       <input
         data-room-id={props.room.idRoom}
-        className={`item-room__input ${props.inputValidate}`}
+        className='item-room__input'
         type='text'
         name='capacity'
+        pattern='[0-9]*'
         placeholder='max 100 pers'
-        minLength='1'
-        maxLength='3'
         value={props.room.capacity}
         onChange={handleChangeInputs}
       />
@@ -40,11 +53,9 @@ function Room(props) {
       </label>
       <input
         data-room-id={props.room.idRoom}
-        className={`item-room__input ${props.inputValidate}`}
+        className='item-room__input'
         type='text'
         name='occupation'
-        minLength='1'
-        maxLength='3'
         placeholder='hasta 100%'
         value={props.room.occupation}
         onChange={handleChangeInputs}

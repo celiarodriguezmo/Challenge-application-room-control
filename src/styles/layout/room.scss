@@ -10,6 +10,23 @@
   margin: 5px;
   padding: 12px;
 
+  &__div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  &__delete {
+    color: $dark_blue;
+    margin: 3px;
+
+    &:hover {
+      color: $red;
+    }
+  }
+
   &__title {
     font-size: 0.8rem;
     color: $dark_blue;
@@ -41,7 +58,4 @@
     border-radius: 0.75rem;
     background-color: $dark_blue;
   }
-}
-.wrong {
-  border-color: red;
 }
